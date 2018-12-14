@@ -6,6 +6,7 @@ import CreateCourse from '@/components/Courses/CreateCourse'
 import Profile from '@/components/Users/Profile'
 import SignUp from '@/components/Users/SignUp'
 import SignIn from '@/components/Users/SignIn'
+import AccountRecovery from '@/components/Users/AccountRecovery'
 
 
 Vue.use(Router)
@@ -48,6 +49,12 @@ export default new Router({
       name: 'SignIn',
       component: SignIn
       
+    },
+    {
+      path: '/account_recovery',
+      name: 'AccountRecovery',
+      component: AccountRecovery
+
     }
   ]
 });

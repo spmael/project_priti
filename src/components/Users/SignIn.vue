@@ -33,13 +33,16 @@
 				
 
 			<v-layout column wrap>
-			  <v-flex xs12 sm6>
-			    Password forgotten?
+				
+			  <v-flex xs12 sm6 v-on:click="goToAccountRecovery()">
+					<!-- *+ Add color -->  
+					<p class="text-xs-right"><u>Did you forget your email or password?</u></p>
 			  </v-flex>
-			  <v-flex xs12 sm6>
+			  <v-flex xs12 sm6>		
 			    <v-btn color="success">Sign In</v-btn>
 			  </v-flex>
 			  <v-flex xs12 sm6>
+					Are you new here? <br>
 			    <v-btn color="success">Sign Up</v-btn>
 			  </v-flex>
 			</v-layout>
@@ -65,6 +68,14 @@
         v => !!v || 'Password is required',
         v => v.length <= 10 || 'Password must be less than 10 characters'
       ],
-    })
+    }),
+	  methods: {
+			goToAccountRecovery: function (){
+				//*+ Add form for email input
+				console.log()
+				this.$router.push('/account_recovery');
+
+			}
+		}
   }
 </script>
