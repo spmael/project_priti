@@ -9,6 +9,7 @@
          <v-rating v-model="rating"></v-rating>
         </div>  
 <v-data-table
+    :headers="headers"
     :items="Time"
     class="elevation-1"
   >
