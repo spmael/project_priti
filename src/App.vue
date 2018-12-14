@@ -30,7 +30,8 @@
       <v-spacer></v-spacer>
       <v-toolbar-items class="hidden-xs-only">
         <v-btn 
-        flat v-for="item in menuItems" 
+        flat 
+        v-for="item in menuItems" 
         :key="item.title"
         router
         :to="item.link">
