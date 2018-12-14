@@ -1,35 +1,53 @@
 <template>
 	
-	<v-container>
-		<v-layout row wrap>
-			<v-flex xs12 sm6 >
-			  <v-form v-model="valid">
-			    <v-text-field
-			      v-model="email"
-			      :rules="emailRules"
-			      label="E-mail"
-			      required
-			    ></v-text-field>
-			    <v-text-field
-			      v-model="password"
-			      :rules="passwordRules"
-			      :counter="10"
-			      label="Password"
-			      required
-			    ></v-text-field>
-			  </v-form>
-			</v-flex>
-		</v-layout>
+	<div
+		style="max-width: 600px; margin: auto;"
+    	class="grey lighten-3">
 
-		<v-layout column wrap>
-		  <v-flex xs12 sm6>
-		    <v-btn color="success">Sign In</v-btn>
-		  </v-flex>
-		  <v-flex xs12 sm6>
-		    <v-btn color="success">Sign Up</v-btn>
-		  </v-flex>
-		</v-layout>
-	</v-container>
+    	<v-toolbar dark color="indigo lighten-2" class="mt-4" >
+    	  <h2>SIGN IN</h2>
+    	</v-toolbar>
+
+    	<v-card>
+    	  <v-container
+    	  	fluid
+        	grid-list-lg>
+	    	  <div>
+	    	  	<v-form 
+	    	  		v-model="valid">
+				    <v-text-field
+				      v-model="email"
+				      :rules="emailRules"
+				      label="E-mail"
+				      required
+				    ></v-text-field>
+				    <v-text-field
+				      v-model="password"
+				      :rules="passwordRules"
+				      :counter="10"
+				      label="Password"
+				      required
+				    ></v-text-field>
+				 </v-form>
+	    	  </div>
+				
+
+			<v-layout column wrap>
+			  <v-flex xs12 sm6>
+			    Password forgotten?
+			  </v-flex>
+			  <v-flex xs12 sm6>
+			    <v-btn color="success">Sign In</v-btn>
+			  </v-flex>
+			  <v-flex xs12 sm6>
+			    <v-btn color="success">Sign Up</v-btn>
+			  </v-flex>
+			</v-layout>
+    	  </v-container>
+    	</v-card>
+		
+	</div>
+		
 
 </template>
 
