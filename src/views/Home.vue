@@ -15,9 +15,11 @@
 	          v-for="course in courses"
 	          :src="course.imageUrl"
 	          :key="course.id">
-	          <div class="title"> 
-	          	{{ course.title }}
-	          </div>
+						<v-flex xs12 v-on:click="goToTutorsPage()">
+							<div class="title"> 								
+								{{ course.title }}
+							</div>
+						</v-flex>
 	          </v-carousel-item>	         
 	      </v-carousel>
 	    </v-flex>
@@ -33,6 +35,13 @@
 					{ imageUrl:'http://www.mrbartonmaths.com/blog/wp-content/uploads/2017/06/june.png', id:'wda',title:'Courses in Maths'},
 					{ imageUrl:'https://www.insidescience.org/sites/default/files/sites/default/files/images/articles/top-images/2018/physics-chalkboard_cropped.jpg', id:'wdwd',title:'Courses in Physics'}
 				]
+			}
+		},
+	  methods: {
+			goToTutorsPage: function (){
+				console.log()
+				this.$router.push('/tutors');
+
 			}
 		}
 	}
