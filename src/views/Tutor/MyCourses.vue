@@ -44,6 +44,7 @@
 <script>
 import { mapGetters, mapActions } from "vuex";
 
+
 export default {
       data: () => ({
       rating: 5, 
