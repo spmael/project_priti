@@ -40,7 +40,7 @@
 					<p class="text-xs-right"><u>Did you forget your email or password?</u></p>
 			  </v-flex>
 			  <v-flex xs12 sm6>		
-			    <v-btn color="success">Sign In</v-btn>
+			    <v-btn color="success" v-on:click="SignIn">Sign In</v-btn>
 			  </v-flex>
 			  <v-flex xs12 sm6>
 					Are you new here? <br>
@@ -56,6 +56,7 @@
 </template>
 
 <script>
+import firebase from "firebase";
   export default {
     data: () => ({
       valid: false,
@@ -68,9 +69,31 @@
       passwordRules: [
         v => !!v || 'Password is required',
         v => v.length <= 10 || 'Password must be less than 10 characters'
-      ],
+			],
+			  name:"SignIn",
+  data(){
+    return{
+      email:null,
+      passward: null
+    }
+  },
+
     }),
 	  methods: {
+			 SignIn: function(){
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
+			user =>{
+					alert('Success!')
+					this.$router.push('/courses')
+					},
+				err =>{
+					alert(err.message)
+				}
+			)
+		}
+		},
+	
+
 			goToAccountRecovery: function (){
 				//*+ Add form for email input
 				console.log()
@@ -83,7 +106,5 @@
 				x.type = "password";
 				}
 			}
-			}
-		}
-  }
+			}}	;
 </script>

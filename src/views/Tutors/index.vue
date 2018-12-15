@@ -16,6 +16,14 @@ import TutorList from "./components/TutorList.vue";
 import { mapGetters, mapActions } from "vuex";
 
 export default {
+  beforeCreate(){
+    if(firebase.auth().currentUser){
+      console.log(firebase.auth().currentUser)
+    }else{
+      alert("You need to login to see this page.")
+      this.$router.push("/")
+    }
+  },
   name: "Tutors",
   components: {
     TutorList
@@ -33,5 +41,8 @@ export default {
       fetchTutors: "tutors/FETCH_TUTORS"
     })
   }
+ 
 };
+import firebase from "firebase";
+
 </script>

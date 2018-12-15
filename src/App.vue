@@ -28,10 +28,21 @@
         <router-link to="/" tag="span" style="cursor: pointer">PriTi</router-link>
       </v-toolbar-title>
       <v-spacer></v-spacer>
-      <v-toolbar-items class="hidden-xs-only">
+      <v-toolbar-items class="hidden-xs-only" v-if="isLoggedIn">
         <v-btn 
         flat 
-        v-for="item in menuItems" 
+        v-for="item in loggedInMenu" 
+        :key="item.title"
+        router
+        :to="item.link">
+          <v-icon left>{{ item.icon }}</v-icon>
+          {{ item.title }}
+        </v-btn>      
+        </v-toolbar-items>
+        <v-toolbar-items class="hidden-xs-only" v-else>
+        <v-btn 
+        flat 
+        v-for="item in loggedOutMenu" 
         :key="item.title"
         router
         :to="item.link">
@@ -53,13 +64,26 @@ export default {
   data() {
     return {
       sideNav: false,
-      menuItems: [
+      loggedOutMenu: [
+
+        { icon:'face', title:'Sign Up', link: '/signup'},
+        { icon:'lock_open', title:'Sign In', link: '/signin'}
+        ],
+        loggedInMenu: [
         { icon:'library_books', title:'View Courses', link: '/courses'},
         { icon:'create', title:'Create Course', link: '/courses/new'},
         { icon:'school', title:'My Profile', link: '/profile'},
-        { icon:'face', title:'Sign Up', link: '/signup'},
-        { icon:'lock_open', title:'Sign In', link: '/signin'}
         ]
+      }
+    },
+    methods: {
+      isLoggedIn: function() {
+        var user = firebase.auth().currentUser;
+          if (user) {
+            return true
+          } else {
+            return false
+          }
       }
     }
   }

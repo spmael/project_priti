@@ -54,7 +54,7 @@
 
 			<v-layout column wrap>
 			  <v-flex xs12 sm6>
-			    <v-btn color="success">Sign Up</v-btn>
+			    <v-btn color="success" v-on:click="SignUp">Sign Up</v-btn>
 			  </v-flex>
 			</v-layout>
     	  </v-container>
@@ -65,13 +65,13 @@
 </template>
 
 <script>
+import firebase from "firebase"
   export default {
     data: () => ({
       valid: false,
       name: '',
       nameRules: [
         v => !!v || 'Name is required',
-        v => /.+@.+/.test(v) || 'Name must be valid'
       ],
       email: '',
       emailRules: [
@@ -85,7 +85,14 @@
       ],
       confirmPassword:'',
       items: ['','Student', 'Teacher'],
-     
+		 
+		 name:"",
+  data(){
+    return{
+      email:null,
+      password: null
+    }
+  },
 
 		}),
 	  methods: {
@@ -96,7 +103,18 @@
 					} else {
 					x.type = "password";
 					}
-				}
+				},
+		SignUp: function(){
+			console.log();
+			firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
+			.then(user =>{
+          alert('Create account: ',this.email);
+					console.log(user);
+        })
+        .catch(error =>{
+            alert(error.message);
+        });
+        }
 			}
-  }
+	}
 </script>
