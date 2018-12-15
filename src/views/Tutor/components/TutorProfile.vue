@@ -45,6 +45,7 @@
               <div>
                 <div><v-icon>map</v-icon>{{currentTutor.country}}</div>
                 <div><v-icon>language</v-icon>{{currentTutor.nativeLanguage}}</div>
+                <div><v-icon>announcement</v-icon>{{currentTutor.otherLanguage}}</div>
                 <div><v-icon>school</v-icon>{{currentTutor.affiliation}}</div>
                 <div><v-icon>mail</v-icon>{{currentTutor.email}}</div>
               </div>
