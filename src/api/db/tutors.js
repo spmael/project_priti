@@ -9,17 +9,29 @@ export default [
       nativeLanguage:"English",
       otherLanguage:"Spanish,Japanese",
       affiliation:"Titech",
-      course: {
-        id: 4,
-        name: "programming"
-      },
+      courses: [
+        {
+          id: 4,
+          name: "programming",
+          price: "¥3000/h"
+        },
+        {
+          id: 8, 
+          name: "music",
+          price: "¥5000/h"
+        }
+      ],
       bio: "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam quis sem massa. Nam non interdum urna. Vivamus vulputate mattis eros sed ultricies. Donec lorem enim, gravida in sem sit amet, hendrerit posuere nulla. Fusce tristique mi velit, at volutpat enim luctus et. Cras facilisis urna non elit vehicula, in eleifend ipsum egestas. Nullam imperdiet turpis ornare arcu porttitor suscipit. Nunc sagittis dictum vehicula. Quisque gravida nisl leo, eget vestibulum nisl scelerisque ut. Mauris in malesuada libero. Etiam pellentesque urna ac purus blandit, ac laoreet massa ullamcorper.Phasellus lacinia viverra purus eget consectetur. Cras urna neque, faucibus ullamcorper volutpat id, semper id sapien. Vestibulum venenatis scelerisque viverra. Fusce faucibus pretium ipsum sit amet vulputate. Donec vel tellus efficitur, luctus sem euismod, pellentesque turpis. Nam feugiat urna ut lacus lobortis volutpat. Curabitur rhoncus, risus at pharetra eleifend, nunc sem lacinia risus, in eleifend dui leo nec leo. Praesent lacinia ornare metus, hendrerit fermentum ex cursus sit amet. Vivamus mauris mauris, maximus nec vestibulum at, interdum vitae eros. Sed quis dolor feugiat odio hendrerit blandit id sed ligula. In eros nisi, dictum ut risus non, posuere tincidunt dolor. Donec laoreet interdum ex, a tempor mi rhoncus ut. Sed finibus justo mi, sit amet viverra dui rhoncus sed.",
-      price: "¥3000/h",
-      locations: { 
+      locations: [{ 
         name:"Shinjuku",
         lat: 35.697782, 
         lng: 139.703589
-      }, 
+      },
+      { 
+        name:"Machida",
+        lat: 36, 
+        lng: 150
+      }], 
       availability: [
         {
           value: false,

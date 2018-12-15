@@ -20,9 +20,6 @@
 	    <v-flex xs12 sm6 class="text-xs-center text-sm-right">
 	      <v-btn dark large router to="/courses" color="success">Explore courses</v-btn>
 	    </v-flex>
-	    <v-flex xs12 sm6 class="text-xs-center text-sm-left">
-	       <v-btn dark large router to="/courses/new" color="indigo lighten-3">Create a course</v-btn>
-	    </v-flex>
 	  </v-layout>
 	</v-container>
 </template>

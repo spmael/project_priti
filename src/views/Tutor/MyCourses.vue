@@ -1,72 +1,97 @@
  <template>
-	<v-container >
-	  <v-layout row wrap class="text-xs-center text-sm-right">
-	    <v-flex xs11 sm5>
-	      <v-card color="indigo lighten-3" class="info">
-	        <v-container>
-	          <v-layout row>
-	            <v-flex xs5 sm4 md3>
-	              <v-card-media
-	                class="phots"
-	                height="100px"
-	                src="https://scontent-nrt1-1.xx.fbcdn.net/v/t1.0-9/29570848_10216038761179149_8943265431861686873_n.jpg?_nc_cat=103&_nc_ht=scontent-nrt1-1.xx&oh=030ae051d5ad925a412e68759c4e02ab&oe=5CA00151"
-	              >
-	              	
-	              </v-card-media>
-	            </v-flex>
-	            <v-flex xs7 sm8 md9>
-	              <v-card-title primary-title>
-	              	<div>
-	              		<h2 class="white--text">Mael</h2>
-	              		<h3>Maths</h3>
-	                	<h3>Physics</h3>
-	              	</div>
-	              </v-card-title>
-	            </v-flex>
-	          </v-layout>
-	        </v-container>
-	      </v-card>
-	    </v-flex>
+ <v-card>
+	<v-container>
+			<v-card v-for="course in myCourses" v-bind:key="course.name">
+        <v-container
+          fluid
+          grid-list-lg
+        >
+          <v-layout row wrap>
+            <v-flex xs12>
+              <v-card color="blue-grey darken-2" class="white--text">
+                <v-card-title primary-title>
+                  <div>
+                    <div class="headline">{{course.name}}</div>
+                  </div>
+                </v-card-title>
+                <v-card-actions>
+                  <v-btn flat dark>Listen now</v-btn>
+                </v-card-actions>
+              </v-card>
+            </v-flex>
+          </v-layout>
+        </v-container>
+      </v-card>
 
-	    <v-flex xs11 sm5 class="ml-2">
-	      <v-card color="indigo lighten-3" class="info">
-	        <v-container>
-	          <v-layout row>
-	            <v-flex xs5 sm4 md3>
-	              <v-card-media
-	                class="phots"
-	                height="100px"
-	                src="https://scontent-nrt1-1.xx.fbcdn.net/v/t1.0-9/29570848_10216038761179149_8943265431861686873_n.jpg?_nc_cat=103&_nc_ht=scontent-nrt1-1.xx&oh=030ae051d5ad925a412e68759c4e02ab&oe=5CA00151"
-	              >
-	              	
-	              </v-card-media>
-	            </v-flex>
-	            <v-flex xs7 sm8 md9>
-	              <v-card-title primary-title>
-	              	<div>
-	              		<h2 class="white--text">Mael</h2>
-	              		<h3>Maths</h3>
-	                	<h3>Physics</h3>
-	              	</div>
-	              </v-card-title>
-	            </v-flex>
-	          </v-layout>
-	        </v-container>
-	      </v-card>
-	    </v-flex>
+		<v-flex xs2 class="text-xs-center text-sm-left">
+			<v-btn dark large router to="/courses/new" color="indigo lighten-3">Create a course</v-btn>
+		</v-flex>
 
-	  </v-layout>
+		<v-card >
+			<v-container>
+				<v-layout row>
+						<v-flex xs3>
+							{{currentTutor.course.name}}
+						</v-flex>	
+				</v-layout>
+			</v-container>
+		</v-card>
+
 	</v-container>
-	
+	</v-card>
 </template>
 
+<script>
+import { mapGetters, mapActions } from "vuex";
 
-<style scoped>
-	.info {
-		border-radius: 20px;
-	}
-	.phots {
-		border-radius: 10px;
-	}
-	
+
+export default {
+      data: () => ({
+      rating: 5, 
+      headers: [
+          {
+            text: 'Time Slot',
+            align: 'left',
+            sortable: true,
+            value: 'name'
+          },
+          { text: 'Mon', value: 'monday' },
+          { text: 'Tue', value: 'tuesday' },
+          { text: 'Wed', value: 'wednesday' },
+          { text: 'Thu', value: 'thursday' },
+          { text: 'Fri', value: 'friday' }
+        ]
+    }),
+  name: "TutorProfile",
+  props: {
+    tutorId: {
+      required: true,
+      type: String
+    }
+  },
+  computed: {
+    ...mapGetters({
+      tutor: "tutors/TUTOR"
+    }),
+    currentTutor() {
+      return this.tutor(1);//this.tutorId);
+    },
+		myCourses() {
+			return this.tutor(this.tutorId).course;
+		}
+  },
+  created() {
+    this.fetchTutor(1);//(this.tutorId);
+  },
+    components: {
+  }, 
+  methods: {
+    ...mapActions({
+      fetchTutor: "tutors/FETCH_TUTOR"
+    })
+  }
+};
+</script>
+
+<style scoped lang="scss">
 </style>

@@ -14,6 +14,10 @@ const tutors = {
     FETCH_TUTOR({ commit }, uid) {
       const response = api.fetchTutor(uid);
       commit("RECEIVE_TUTOR", response);
+    },
+    FETCH_TUTOR_LOCATIONS({ commit }, uid) {
+      const response = api.fetchTutorLocations(uid);
+      commit("RECEIVE_TUTOR_LOCATIONS", response);
     }
   },
   getters: {
@@ -22,6 +26,9 @@ const tutors = {
     },
     TUTOR(state) {
       return id => state.tutors[Number(id)];
+    },
+    TUTOR_LOCATIONS(state) {
+      return id => state.tutors[Number(id)].locations;
     }
   },
   mutations: {
@@ -33,6 +40,11 @@ const tutors = {
       });
     },
     RECEIVE_TUTOR(state, tutor) {
+      if (tutor) {
+        Vue.set(state.tutors, tutor.id, tutor);
+      }
+    },
+    RECEIVE_TUTOR_LOCATIONS(state, tutor) {
       if (tutor) {
         Vue.set(state.tutors, tutor.id, tutor);
       }
