@@ -35,7 +35,7 @@ export default {
   },
   computed: {
     markers() {
-      return this.stores
+      return this.tutorLocations
         // .filter(obj => obj.lat !== "" && obj.lng !== "")
         .reduce(function(accumulator, currentValue) {
           return accumulator.concat({
@@ -46,12 +46,11 @@ export default {
         }, []);
     },
     ...mapState({
-      stores: state => state.stores.all,
-      selectedStoreId: state => state.stores.selectedStoreId
+      tutorLocations: state => state.locations,
     })
   },
   created() {
-    this.$store.dispatch("stores/getAllStores");
+    this.$tutorLocations.dispatch("tutors/fetchTutorLocations");
   },
   components: {
     MapLoader,

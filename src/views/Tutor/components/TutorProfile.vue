@@ -4,31 +4,49 @@
         <v-layout row wrap>
           <v-flex xs3>
           <!---*+ move to center-->
-            <v-img
+
+            <v-card>
+              <v-img
                 :src="currentTutor.image"
                 width="100%"
-            >
-              <v-layout              
-                column
-                fill-height
               >
-                <v-spacer></v-spacer>
-                <v-card-title class="white--text pl-5 pt-5">
-                  <div class="display-1 pl-5 pt-5">{{ currentTutor.name }}</div>
-                  <div class="dtext-xs-center"><v-rating v-model="rating"></v-rating></div>
-                </v-card-title>  
-                          
-              </v-layout>
-            </v-img>
+                <v-container
+                  fill-height
+                  fluid
+                  pa-2
+                >
+                <v-layout              
+                  column
+                  fill-height>
+                  <v-spacer></v-spacer>
+                  <v-flex xs12 align-end flexbox>
+                    <v-card-title class="white--text pl-5 pt-5">
+                      <div class="display-1 pl-5 pt-5">{{ currentTutor.name }}</div>
+                      <div class="dtext-xs-center"><v-rating v-model="rating"></v-rating></div>
+                    </v-card-title>  
+                    </v-flex>
+                  </v-layout>
+                </v-container>
+              </v-img>
+
+            <v-card-actions>
+              <div>
+              <v-icon>local_library</v-icon>{{currentTutor.course.name}} <v-icon>money</v-icon>{{currentTutor.price}}             
+                <v-btn icon>
+                  <v-icon>add_circle</v-icon>
+                </v-btn>
+              </div>
+
+              </v-card-actions>
+            </v-card>
           </v-flex>
           <v-flex xs3> 
             <v-card-text>
               <div>
-              <div><v-icon>map</v-icon>{{currentTutor.country}}</div>
-              <div><v-icon>language</v-icon>{{currentTutor.nativeLanguage}}</div>
-              <div><v-icon>school</v-icon>{{currentTutor.course.name}}</div>
-              <div><v-icon>money</v-icon>{{currentTutor.price}}</div>
-              <div><v-icon>mail</v-icon>{{currentTutor.email}}</div>
+                <div><v-icon>map</v-icon>{{currentTutor.country}}</div>
+                <div><v-icon>language</v-icon>{{currentTutor.nativeLanguage}}</div>
+                <div><v-icon>school</v-icon>{{currentTutor.affiliation}}</div>
+                <div><v-icon>mail</v-icon>{{currentTutor.email}}</div>
               </div>
             </v-card-text>
           </v-flex>
@@ -41,9 +59,10 @@
           <v-flex xs6>
             <v-card>
               <v-card-title>
-                <p size="5pt">Tutor Bio</p>
-              </v-card-title>
-              <p class="text-xs-center">{{currentTutor.bio}}</p>
+                <p class="headline">Tutor Bio</p>                              
+              </v-card-title>            
+              <v-divider></v-divider>
+              <p class="text-justify">{{currentTutor.bio}}</p>
             </v-card>
           </v-flex>
 
