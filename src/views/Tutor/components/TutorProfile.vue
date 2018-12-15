@@ -35,7 +35,6 @@
               <Map />
             </v-card>
           </v-flex>
-
           <v-flex xs6>
             <v-card>
               <v-card-title>
