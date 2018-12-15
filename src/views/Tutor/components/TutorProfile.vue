@@ -37,8 +37,13 @@
           <td class="text-xs-right">{{ props.item.friday }}</td>
           </template>
         </v-data-table>
-
-
+        <v-card-text>
+          <p class="text-xs-center">{{currentTutor.bio}}</p>
+          <p class="text-xs-center">{{currentTutor.price}}</p>
+          <p class="text-xs-center">{{currentTutor.country}}</p>
+          <p class="text-xs-center">{{currentTutor.nativeLanguage}}</p>
+          <p class="text-xs-center">{{currentTutor.course.name}}</p>
+        </v-card-text>
       </v-card>
     </v-flex>
   </v-layout>

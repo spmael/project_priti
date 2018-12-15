@@ -11,6 +11,8 @@ export default [
         id: 4,
         name: "programming"
       },
+      bio: "lorem ipsum",
+      price: "¥3000/h",
       availability: [
         {
           value: false,
