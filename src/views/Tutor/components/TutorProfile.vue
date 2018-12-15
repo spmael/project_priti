@@ -6,8 +6,7 @@
           <!---*+ move to center-->
             <v-img
                 :src="currentTutor.image"
-                height="300px"
-                width="300px"
+                width="100%"
             >
               <v-layout              
                 column
@@ -23,6 +22,10 @@
             </v-img>
           </v-flex>
           <v-flex xs3> 
+                <v-card-actions>
+                  <v-icon>map</v-icon>
+                  <v-card-title v-text="tutor.country"></v-card-title>
+                </v-card-actions>
             <p class="text-xs-center display-1">{{currentTutor.country}}</p>
             <p class="text-xs-center display-1">{{currentTutor.nativeLanguage}}</p>
             <p class="text-xs-center display-1">{{currentTutor.course.name}}</p>
