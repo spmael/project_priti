@@ -30,16 +30,18 @@
               </v-img>
 
             <v-card-actions>
-              <div>
-              <v-icon>local_library</v-icon>{{currentTutor.course.name}} <v-icon>money</v-icon>{{currentTutor.price}}             
-                <v-btn icon>
-                  <v-icon>add_circle</v-icon>
-                </v-btn>
-              </div>
-
-              </v-card-actions>
+              <v-layout column>
+                <div v-for="course in courses()" v-bind:key="course.name">
+                  <v-icon>local_library</v-icon>{{course.name}} <v-icon>money</v-icon>{{course.price}}             
+                  <v-btn icon>
+                    <v-icon>add_circle</v-icon>
+                  </v-btn>
+                </div>
+              </v-layout>
+            </v-card-actions>
             </v-card>
           </v-flex>
+
           <v-flex xs3> 
             <v-card-text>
               <div>
@@ -53,7 +55,14 @@
 
           <v-flex xs6>
             <v-card>
-              <Map />
+              <v-card-title>
+                <p class="headline">Location</p>                              
+              </v-card-title>            
+              <v-divider></v-divider>
+            <static-map :google-api-key="apiKey"
+              :language="language" v-on:get-url="getUrl"
+              :format="format" :markers="locationMarkers" :zoom="zoom" :center="center"
+              :size="size" :type="type"></static-map>         
             </v-card>
           </v-flex>
           <v-flex xs6>
@@ -68,6 +77,10 @@
 
           <v-flex xs6>
             <v-card>
+              <v-card-title>
+                <p class="headline">Class Availability</p>                              
+              </v-card-title>            
+              <v-divider></v-divider>
               <v-data-table
                 :headers="headers"
                 :items="currentTutor.availability"
@@ -93,7 +106,11 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import Map from "@/components/Map.vue";
+import StaticMap from '@/components/StaticMap.vue';
+
+function getUrl(url) {
+	this.url = url;
+}
 
 export default {
       data: () => ({
@@ -110,8 +127,26 @@ export default {
           { text: 'Wed', value: 'wednesday' },
           { text: 'Thu', value: 'thursday' },
           { text: 'Fri', value: 'friday' }
-        ]
-    }),
+        ],
+      apiKey: 'AIzaSyBNzPxDEDzlMCA9cedItIPCwtbdk037BGg',
+			center: 'Brooklyn+Bridge,New+York,NY',
+			format: 'gif',
+			language: 'ja',
+			markers: [
+				{
+					label: 'W',
+					color: 'blue',
+					lat: 40.702147,
+					lng: -74.015794,
+					size: 'normal',
+				},
+			],
+			scale: '1',
+			size: [800, 400],
+			type: 'roadmap',
+			url: '',
+			zoom: 13
+       } ),
   name: "TutorProfile",
   props: {
     tutorId: {
@@ -133,13 +168,39 @@ export default {
   created() {
     this.fetchTutor(this.tutorId);
   },
-    components: {
-    Map
+  components: {
+    StaticMap,
   }, 
   methods: {
     ...mapActions({
       fetchTutor: "tutors/FETCH_TUTOR"
-    })
+    }), 
+    courses: function () {
+      return this.tutor(this.tutorId).courses;
+    },
+    locations: function() {
+      return this.tutor(this.tutorId).locations;
+    },
+    locationMarkers: function() {
+      var locs = locations();
+      var i = 1;
+      var mks = [];
+      for (i=0;i<=locs.length;i++)
+      {
+        mks.push(
+          {
+            label: locs(i).name,
+            color: 'blue',
+            lat: locs(i).lat,
+            lng: locs(i).lng,
+            size: 'normal',
+				  }
+        );
+      }
+      console.log(mks)
+      return mks;
+    },
+		getUrl,
   }
 };
 </script>
