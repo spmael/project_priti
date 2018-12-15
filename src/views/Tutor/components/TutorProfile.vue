@@ -24,13 +24,24 @@
           <v-flex xs3> 
                 <v-card-actions>
                   <v-icon>map</v-icon>
-                  <v-card-title v-text="tutor.country"></v-card-title>
+                  <v-card-title v-text="currentTutor.country"></v-card-title>
                 </v-card-actions>
-            <p class="text-xs-center display-1">{{currentTutor.country}}</p>
-            <p class="text-xs-center display-1">{{currentTutor.nativeLanguage}}</p>
-            <p class="text-xs-center display-1">{{currentTutor.course.name}}</p>
-            <p class="text-xs-center display-1">{{currentTutor.price}}</p> 
-            message here!  
+                <v-card-actions>
+                  <v-icon>language</v-icon>
+                  <v-card-title v-text="currentTutor.nativeLanguage"></v-card-title>
+                </v-card-actions>
+                <v-card-actions>
+                  <v-icon>school</v-icon>
+                  <v-card-title v-text="currentTutor.course.name"></v-card-title>
+                </v-card-actions>
+                <v-card-actions>
+                  <v-icon>money</v-icon>
+                  <v-card-title v-text="currentTutor.price"></v-card-title>
+                </v-card-actions>
+               <v-card-actions>
+                  <v-icon>mail</v-icon>
+                  <v-card-title v-text="currentTutor.email"></v-card-title>
+                </v-card-actions>
           </v-flex>
 
           <v-flex xs6>
