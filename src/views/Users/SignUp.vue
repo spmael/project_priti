@@ -32,6 +32,7 @@
 				      :counter="10"
 				      label="Password"
 				      required
+							input type="password" id="myInput"
 				    ></v-text-field>
 				    <v-text-field
 				      v-model="confirmPassword"
@@ -39,6 +40,7 @@
 				      :counter="10"
 				      label="Confirm Password"
 				      required
+							input type="password" id="myInput"
 				    ></v-text-field>
 				 </v-form>
 				 <v-select
@@ -85,5 +87,14 @@
      
 
     })
-  }
+	}
+				function myFunction() {
+				var x = document.getElementById("myInput");
+				if (x.type === "password") {
+				x.type = "text";
+				} else {
+				x.type = "password";
+				}
+			}
+
 </script>

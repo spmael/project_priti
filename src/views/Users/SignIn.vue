@@ -27,6 +27,7 @@
 				      :counter="10"
 				      label="Password"
 				      required
+							input type="password" id="myInput"
 				    ></v-text-field>
 				 </v-form>
 	    	  </div>
@@ -74,7 +75,14 @@
 				//*+ Add form for email input
 				console.log()
 				this.$router.push('/account_recovery');
-
+			function myFunction() {
+				var x = document.getElementById("myInput");
+				if (x.type === "password") {
+				x.type = "text";
+				} else {
+				x.type = "password";
+				}
+			}
 			}
 		}
   }

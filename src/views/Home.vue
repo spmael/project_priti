@@ -1,27 +1,27 @@
 <template>
 	<v-container>
-	  <v-layout row wrap class="mb-2">
-	    <v-flex xs12 sm6 class="text-xs-center text-sm-right">
-	      <v-btn dark large router to="/courses" color="success">Explore courses</v-btn>
-	    </v-flex>
-	    <v-flex xs12 sm6 class="text-xs-center text-sm-left">
-	       <v-btn dark large router to="/courses/new" color="indigo lighten-3">Create a course</v-btn>
-	    </v-flex>
-	  </v-layout>
 	  <v-layout row wrap>
 	    <v-flex xs12>
 	      <v-carousel>
-	        <v-carousel-item
+	        <v-carousel-item v-on:click="goToTutorsPage()"
 	          v-for="course in courses"
 	          :src="course.imageUrl"
 	          :key="course.id">
-						<v-flex xs12 v-on:click="goToTutorsPage()">
+						<v-flex xs12 >
 							<div class="title"> 								
 								{{ course.title }}
 							</div>
 						</v-flex>
 	          </v-carousel-item>	         
 	      </v-carousel>
+	    </v-flex>
+	  </v-layout>
+		<v-layout row wrap class="mb-2">
+	    <v-flex xs12 sm6 class="text-xs-center text-sm-right">
+	      <v-btn dark large router to="/courses" color="success">Explore courses</v-btn>
+	    </v-flex>
+	    <v-flex xs12 sm6 class="text-xs-center text-sm-left">
+	       <v-btn dark large router to="/courses/new" color="indigo lighten-3">Create a course</v-btn>
 	    </v-flex>
 	  </v-layout>
 	</v-container>
