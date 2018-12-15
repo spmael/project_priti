@@ -22,26 +22,15 @@
             </v-img>
           </v-flex>
           <v-flex xs3> 
-                <v-card-actions>
-                  <v-icon>map</v-icon>
-                  <v-card-title v-text="currentTutor.country"></v-card-title>
-                </v-card-actions>
-                <v-card-actions>
-                  <v-icon>language</v-icon>
-                  <v-card-title v-text="currentTutor.nativeLanguage"></v-card-title>
-                </v-card-actions>
-                <v-card-actions>
-                  <v-icon>school</v-icon>
-                  <v-card-title v-text="currentTutor.course.name"></v-card-title>
-                </v-card-actions>
-                <v-card-actions>
-                  <v-icon>money</v-icon>
-                  <v-card-title v-text="currentTutor.price"></v-card-title>
-                </v-card-actions>
-               <v-card-actions>
-                  <v-icon>mail</v-icon>
-                  <v-card-title v-text="currentTutor.email"></v-card-title>
-                </v-card-actions>
+            <v-card-text>
+              <div>
+              <div><v-icon>map</v-icon>{{currentTutor.country}}</div>
+              <div><v-icon>language</v-icon>{{currentTutor.nativeLanguage}}</div>
+              <div><v-icon>school</v-icon>{{currentTutor.course.name}}</div>
+              <div><v-icon>money</v-icon>{{currentTutor.price}}</div>
+              <div><v-icon>mail</v-icon>{{currentTutor.email}}</div>
+              </div>
+            </v-card-text>
           </v-flex>
 
           <v-flex xs6>
@@ -52,7 +41,7 @@
           <v-flex xs6>
             <v-card>
               <v-card-title>
-                Tutor Bio
+                <p size="5pt">Tutor Bio</p>
               </v-card-title>
               <p class="text-xs-center">{{currentTutor.bio}}</p>
             </v-card>

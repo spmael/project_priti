@@ -2,28 +2,28 @@
   <v-card
     hover
     width="200px"
+    height="300px"
     :to="`/tutors/${tutor.id}`"
+  >
+  <v-container
+  fluid
+  grid-list-md
   >
     <v-img
       :src="tutorImage"
-      height="256px"
+      width="100%"
     >
     </v-img>
-
-    <v-card-actions>
-      <v-icon>person</v-icon>
-      <v-card-title v-text="tutor.name"></v-card-title>
-    </v-card-actions>
-
-    <v-card-actions>
-      <v-icon>email</v-icon>
-      <v-card-title v-text="tutor.country"></v-card-title>
-    </v-card-actions>
-    
-    <v-card-actions>
-      <v-icon>people</v-icon>
-      <v-card-title v-if="tutor.course" v-text="tutor.course.name"></v-card-title>
-    </v-card-actions>
+    <v-card-title primary-title>
+      <div>
+        <div class="headline">{{tutor.name}}</div>    
+        <div><v-icon>map</v-icon>{{tutor.country}}</div>
+        <div><v-icon>language</v-icon>{{tutor.nativeLanguage}}</div>
+        <div><v-icon>attach_money</v-icon>{{tutor.price}}</div>
+        <div><v-icon>school</v-icon>{{tutor.course.name}}</div>
+      </div>
+    </v-card-title>
+  </v-container>
   </v-card>
 </template>
 
