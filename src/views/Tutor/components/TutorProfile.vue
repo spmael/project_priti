@@ -183,10 +183,9 @@ export default {
       return this.tutor(this.tutorId).locations;
     },
     locationMarkers: function() {
-      var locs = locations();
-      var i = 1;
+      var locs = this.tutor(this.tutorId).locations;
       var mks = [];
-      for (i=0;i<=locs.length;i++)
+      for (var i=0;i<=locs.length;i++)
       {
         mks.push(
           {
@@ -194,8 +193,8 @@ export default {
             color: 'blue',
             lat: locs(i).lat,
             lng: locs(i).lng,
-            size: 'normal',
-				  }
+            size: 'normal'
+          }
         );
       }
       console.log(mks)
