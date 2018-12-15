@@ -40,8 +40,9 @@
 				      :counter="10"
 				      label="Confirm Password"
 				      required
-							input type="password" id="myInput"
+							input type="password"  id="retypePassword"
 				    ></v-text-field>
+						<v-checkbox type="checkbox" onclick="showPassword()">Show Password</v-checkbox>					
 				 </v-form>
 				 <v-select
 		          :items="items"
@@ -86,15 +87,16 @@
       items: ['','Student', 'Teacher'],
      
 
-    })
-	}
-				function myFunction() {
-				var x = document.getElementById("myInput");
-				if (x.type === "password") {
-				x.type = "text";
-				} else {
-				x.type = "password";
+		}),
+	  methods: {
+			showPassword: function() {
+					var x = document.getElementById("retypePassword");
+					if (x.type === "password") {
+					x.type = "text";
+					} else {
+					x.type = "password";
+					}
 				}
 			}
-
+  }
 </script>
