@@ -17,7 +17,7 @@
 
     <v-card-actions>
       <v-icon>email</v-icon>
-      <v-card-title v-text="tutor.email"></v-card-title>
+      <v-card-title v-text="tutor.country"></v-card-title>
     </v-card-actions>
     
     <v-card-actions>
