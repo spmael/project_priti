@@ -62,7 +62,8 @@
               <v-divider></v-divider>
             <static-map :google-api-key="apiKey"
               :language="language" v-on:get-url="getUrl"
-              :format="format" :markers="locationMarkers" :zoom="zoom" :center="center"
+              :format="format" :markers="locationMarkers" 
+              :zoom="zoom" :center="currentTutor.locations[0].name"
               :size="size" :type="type"></static-map>         
             </v-card>
           </v-flex>
@@ -130,20 +131,20 @@ export default {
           { text: 'Fri', value: 'friday' }
         ],
       apiKey: 'AIzaSyBNzPxDEDzlMCA9cedItIPCwtbdk037BGg',
-			center: 'Brooklyn+Bridge,New+York,NY',
+			//center: 'Brooklyn+Bridge,New+York,NY',
 			format: 'gif',
 			language: 'ja',
-			markers: [
-				{
-					label: 'W',
-					color: 'blue',
-					lat: 40.702147,
-					lng: -74.015794,
-					size: 'normal',
-				},
-			],
+			//markers: [
+				//{
+					//label: 'W',
+					//color: 'blue',
+					//lat: 40.702147,
+					//lng: -74.015794,
+					//size: 'normal',
+				//},
+			//],
 			scale: '1',
-			size: [800, 400],
+			size: [400, 400],
 			type: 'roadmap',
 			url: '',
 			zoom: 13
@@ -164,6 +165,18 @@ export default {
     },
     tutorImage() {
       return this.tutor.image ? this.tutor.image : "https://stmichaelsknightsofcolumbus.com/wordpress/wp-content/uploads/2013/08/Photo-not-available.jpg";
+    },
+    locationMarkers() {
+      var locs = this.tutor(this.tutorId).locations
+      return locs.map(loc => {
+        return {
+          label: loc.name,
+          color: 'blue',
+          lat: loc.lat,
+          lng: loc.lng,
+          size: 'normal'
+        }
+      })
     }
   },
   created() {
@@ -178,27 +191,6 @@ export default {
     }), 
     courses: function () {
       return this.tutor(this.tutorId).courses;
-    },
-    locations: function() {
-      return this.tutor(this.tutorId).locations;
-    },
-    locationMarkers: function() {
-      var locs = this.tutor(this.tutorId).locations;
-      var mks = [];
-      for (var i=0;i<=locs.length;i++)
-      {
-        mks.push(
-          {
-            label: locs(i).name,
-            color: 'blue',
-            lat: locs(i).lat,
-            lng: locs(i).lng,
-            size: 'normal'
-          }
-        );
-      }
-      console.log(mks)
-      return mks;
     },
 		getUrl,
   }
