@@ -2,13 +2,16 @@
 	<v-container>
 	  <v-layout row wrap>
 	    <v-flex xs12>
+				<h1> Are you looking for a "PriTi" tutor?</h1>
+				<v-divider></v-divider>
+				<v-spacer></v-spacer>
 	      <v-carousel>
 	        <v-carousel-item
 	          v-for="course in courses"
 	          :src="course.imageUrl"
 	          :key="course.id">
 						<v-flex xs12 >
-							<v-btn v-on:click="goToCoursesPage(course.name)">								
+							<v-btn color="indigo" v-on:click="goToCoursesPage(course.name)">								
 									{{ course.title }}
 							</v-btn>
 						</v-flex>

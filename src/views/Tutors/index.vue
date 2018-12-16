@@ -1,5 +1,9 @@
 <template>
   <div>
+    <v-layout justify-center align-center>
+    <h1>All Courses</h1>
+    </v-layout>
+    <v-divider></v-divider>
     <v-content>
       <v-container fill-height>
         <v-layout justify-center align-center>
