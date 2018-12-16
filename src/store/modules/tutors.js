@@ -4,7 +4,8 @@ import api from "@/api";
 const tutors = {
   namespaced: true,
   state: {
-    tutors: {}
+    tutors: {},
+    students: {},
   },
   actions: {
     FETCH_TUTORS({ commit }) {
@@ -18,6 +19,10 @@ const tutors = {
     FETCH_TUTOR_LOCATIONS({ commit }, uid) {
       const response = api.fetchTutorLocations(uid);
       commit("RECEIVE_TUTOR_LOCATIONS", response);
+    },
+    FETCH_STUDENT({ commit }, uid) {
+      const response = api.fetchStudent(uid);
+      commit("RECEIVE_STUDENT", response);
     }
   },
   getters: {
@@ -29,6 +34,9 @@ const tutors = {
     },
     TUTOR_LOCATIONS(state) {
       return id => state.tutors[Number(id)].locations;
+    },
+    STUDENT(state) {
+      return id => state.student[Number(id)];
     }
   },
   mutations: {
@@ -47,6 +55,11 @@ const tutors = {
     RECEIVE_TUTOR_LOCATIONS(state, tutor) {
       if (tutor) {
         Vue.set(state.tutors, tutor.id, tutor);
+      }
+    },
+    RECEIVE_STUDENT(state, student) {
+      if (student) {
+        Vue.set(state.students, student.id, student);
       }
     }
   }

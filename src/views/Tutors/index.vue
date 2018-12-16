@@ -17,12 +17,14 @@ import { mapGetters, mapActions } from "vuex";
 
 export default {
   beforeCreate(){
-    if(firebase.auth().currentUser){
-      console.log(firebase.auth().currentUser)
-    }else{
-      alert("You need to login to see this page.")
-      this.$router.push("/")
-    }
+    firebase.auth().onAuthStateChanged(user =>{
+      if (user) {
+        console.log(firebase.auth().currentUser)
+      }else{
+        alert("You need to login to see this page.")
+        this.$router.push("/")
+      }
+    }) 
   },
   name: "Tutors",
   components: {

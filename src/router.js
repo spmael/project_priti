@@ -53,7 +53,7 @@ export default new Router({
       props: true
     },
     {
-      path: "my_courses/:tutorId",
+      path: "/:tutorId/my_courses",
       name: "MyCourses",
       component: MyCourses,
       props: true

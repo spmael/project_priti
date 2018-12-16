@@ -1,42 +1,28 @@
  <template>
- <v-card v-if="currentTutor">
-	<v-container>
-			<v-card v-for="course in myCourses()" v-bind:key="course.name">
-        <v-container
-          fluid
-          grid-list-lg
-        >
-          <v-layout row wrap>
-            <v-flex xs12>
+  <v-card v-if="currentTutor">
+	  <v-container
+    fluid
+    grid-list-md>
+      <v-layout row wrap>
+      <v-flex xs6  v-for="course in myCourses()" v-bind:key="course.name">
               <v-card color="blue-grey darken-2" class="white--text">
                 <v-card-title primary-title>
                   <div>
                     <div class="headline">{{course.name}}</div>
+                    <div >{{course.price}}</div>
                   </div>
                 </v-card-title>
                 <v-card-actions>
-                  <v-btn flat dark>Listen now</v-btn>
+                  <v-btn  dark>Change</v-btn>
                 </v-card-actions>
               </v-card>
-            </v-flex>
-          </v-layout>
-        </v-container>
-      </v-card>
+      </v-flex>
 
 		<v-flex xs2 class="text-xs-center text-sm-left">
 			<v-btn dark large router to="/courses/new" color="indigo lighten-3">Create a course</v-btn>
 		</v-flex>
 
-		<v-card >
-			<v-container>
-				<v-layout row>
-						<v-flex xs3>
-							{{currentTutor.course.name}}
-						</v-flex>	
-				</v-layout>
-			</v-container>
-		</v-card>
-
+    </v-layout>
 	</v-container>
 	</v-card>
 </template>
@@ -87,7 +73,7 @@ export default {
       fetchTutor: "tutors/FETCH_TUTOR"
     }),
 		myCourses() {
-			return this.tutor(this.tutorId).course;
+			return this.tutor(this.tutorId).courses;
 		}
   }
 };
