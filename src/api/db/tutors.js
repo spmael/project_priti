@@ -37,29 +37,29 @@ export default [
         {
           value: false,
           timeslot: '9:00-12:00',
-          monday: "○",
-          tuesday: "×",
-          wednesday: "○",
-          thursday: "×",
-          friday: "○"
+          monday: true,
+          tuesday: false,
+          wednesday: false,
+          thursday: false,
+          friday: true
         },
         {
           value: false,
           timeslot: '13:00-16:00',
-          monday: "○",
-          tuesday: "×",
-          wednesday: "○",
-          thursday: "×",
-          friday: "○"
+          monday: false,
+          tuesday: false,
+          wednesday: true,
+          thursday: false,
+          friday: true
         },
         {
           value: false,
           timeslot: '17:00-20:00',
-          monday: "○",
-          tuesday: "×",
-          wednesday: "○",
-          thursday: "×",
-          friday: "○"
+          monday: true,
+          tuesday: false,
+          wednesday: true,
+          thursday: false,
+          friday: true
         },
       ]
     },

@@ -79,7 +79,7 @@ export default {
         ],
         loggedInMenu: [
         { icon:'library_books', title:'View Courses', link: '/courses'},
-        { icon:'create', title:'Create Course', link: '/courses/new'},
+        { icon:'create', title:'Create Course', link: '/tutors/create_course'},
         { icon:'school', title:'My Profile', link: '/profile'},
         ]
       }
