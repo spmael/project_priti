@@ -1,5 +1,34 @@
 <template>
   <v-app>
+        <!-- Navigation minimized -->
+    <v-navigation-drawer 
+      v-model="sideNav"
+      temporary
+      fixed>
+      <v-list>
+        <v-list-tile v-for="item in currentMenu()" :key="item.title"
+        router 
+        :to="item.link">
+          <v-list-tile-action>
+            <v-icon>{{ item.icon }}</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-content>
+            {{ item.title }}
+          </v-list-tile-content>
+        </v-list-tile>
+        <v-list-tile
+          v-if="isLoggedIn"
+          v-on:click="signOut(0)">
+          <v-list-tile-action> 
+            <v-icon left>toggle_off</v-icon>
+          </v-list-tile-action>
+          <v-list-tile-title>
+            Sign Out
+          </v-list-tile-title>
+        </v-list-tile>
+      </v-list>
+    </v-navigation-drawer>
+
     <!-- Navigation bar -->
     <v-toolbar dark class="indigo lighten-2">
       <v-toolbar-side-icon 
