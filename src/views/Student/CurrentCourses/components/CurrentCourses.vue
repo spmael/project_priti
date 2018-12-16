@@ -18,8 +18,8 @@
               </v-card>
       </v-flex>
 
-		<v-flex xs2 class="text-xs-center text-sm-left">
-			<v-btn dark large router to="/courses/new" color="indigo lighten-3">Find more courses</v-btn>
+		<v-flex xs12>
+      <v-btn dark large router to="/tutors/" color="indigo lighten-3">Find more courses</v-btn>
 		</v-flex>
 
     </v-layout>

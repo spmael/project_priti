@@ -8,7 +8,7 @@ const students = {
   },
   actions: {
     FETCH_STUDENTS({ commit }) {
-      const response = api.fetchTutors();
+      const response = api.fetchStudents();
       commit("RECEIVE_STUDENTS", response);
     },
     FETCH_STUDENT({ commit }, uid) {
@@ -21,7 +21,7 @@ const students = {
       return Object.values(state.students);
     },
     STUDENT(state) {
-      return id => state.student[Number(id)];
+      return id => state.students[Number(id)];
     }
   },
   mutations: {

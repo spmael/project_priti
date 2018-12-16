@@ -12,6 +12,9 @@ export default {
   {
     return tutors.find(tutor => tutor.id === Number(tutorId)).location;
   },
+  fetchStudents() {
+    return students;
+  },
   fetchStudent(studentId) {
     return students.find(student => student.id === Number(studentId));
   },
