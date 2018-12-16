@@ -49,9 +49,8 @@
 		          label="Use as">     	
 		         </v-select>
 		         <v-checkbox label="I agree with the condition terms"></v-checkbox>
-	    	  </div>
-				
-
+				<v-btn  color="indigo"> Upload your ID card</v-btn>
+				</div>
 			<v-layout column wrap>
 			  <v-flex xs12 sm6>
 			    <v-btn color="success" v-on:click="SignUp">Sign Up</v-btn>

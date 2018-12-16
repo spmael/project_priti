@@ -39,6 +39,9 @@
 			<v-btn dark large router to="/tutor/1/create_course" color="indigo lighten-3">Create a course</v-btn>
 		</v-flex>
 
+  <v-flex xs2class="text-xs-center text-sm-left" >
+    <v-btn  dark large color="indigo lighten-1"> Change your information</v-btn>
+  </v-flex>
     </v-layout>
 	</v-container>
 	</v-card>
