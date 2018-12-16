@@ -1,6 +1,6 @@
 <template>
     <v-container>
-          		 <h1>{{currentTutor.name}}'s profile</h1>
+     <h1>{{currentTutor.name}}'s profile</h1>
       <v-card v-if="currentTutor">
         <v-layout row wrap>
           <v-flex xs3>
