@@ -3,14 +3,14 @@
 	  <v-layout row wrap>
 	    <v-flex xs12>
 	      <v-carousel>
-	        <v-carousel-item v-on:click="goToTutorsPage()"
+	        <v-carousel-item
 	          v-for="course in courses"
 	          :src="course.imageUrl"
 	          :key="course.id">
 						<v-flex xs12 >
-							<div class="title"> 								
-								{{ course.title }}
-							</div>
+							<v-btn v-on:click="goToCoursesPage(course.name)">								
+									{{ course.title }}
+							</v-btn>
 						</v-flex>
 	          </v-carousel-item>	         
 	      </v-carousel>
@@ -18,7 +18,7 @@
 	  </v-layout>
 		<v-layout row wrap class="mb-2">
 	    <v-flex xs12 sm6 class="text-xs-center text-sm-right">
-	      <v-btn dark large router to="/courses" color="success">Explore courses</v-btn>
+	      <v-btn dark large router to="/tutors" color="success">Explore courses</v-btn>
 	    </v-flex>
 	  </v-layout>
 	</v-container>
@@ -29,16 +29,15 @@
 		data() {
 			return {
 				courses: [
-					{ imageUrl:'http://www.mrbartonmaths.com/blog/wp-content/uploads/2017/06/june.png', id:'wda',title:'Courses in Maths'},
-					{ imageUrl:'https://www.insidescience.org/sites/default/files/sites/default/files/images/articles/top-images/2018/physics-chalkboard_cropped.jpg', id:'wdwd',title:'Courses in Physics'}
+					{ imageUrl:'http://www.mrbartonmaths.com/blog/wp-content/uploads/2017/06/june.png', id:'wda',title:'Courses in Biology', name: "biology"},
+					{ imageUrl:'https://www.insidescience.org/sites/default/files/sites/default/files/images/articles/top-images/2018/physics-chalkboard_cropped.jpg', id:'wdwd',title:'Courses in mathematics', name:"mathematics"}
 				]
 			}
 		},
 	  methods: {
-			goToTutorsPage: function (){
+			goToCoursesPage: function (courseName){
 				console.log()
-				this.$router.push('/tutors');
-
+				this.$router.push('/courses/' + courseName);
 			}
 		}
 	}

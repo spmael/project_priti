@@ -1,13 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/views/Home'
-import ViewCourses from '@/views/Courses/ViewCourses'
 import CreateCourse from '@/views/CreateCourse'
 import Tutor from "@/views/Tutor";
 import Tutors from "@/views/Tutors";
+import Courses from "@/views/Courses";
 import MyCourses from "@/views/Tutor/MyCourses"
 import CurrentCourses from "@/views/Student/CurrentCourses"
-import Profile from '@/views/Users/Profile'
 import SignUp from '@/views/Users/SignUp'
 import SignIn from '@/views/Users/SignIn'
 import AccountRecovery from '@/views/Users/AccountRecovery'
@@ -23,13 +22,7 @@ export default new Router({
       path: '/',
       name: 'home',
       component: Home
-    },
-    {
-      path: '/courses',
-      name: 'ViewCourses',
-      component: ViewCourses
-      
-    },    
+    },   
     {
       path: "/tutor/:tutorId/create_course",
       name: "CreateCourse",
@@ -40,6 +33,11 @@ export default new Router({
       path: "/tutors",
       name: "tutors",
       component: Tutors
+    },
+    {
+      path: "/courses/:course",
+      name: "courses",
+      component: Courses
     },
     {
       path: "/tutor/:tutorId",

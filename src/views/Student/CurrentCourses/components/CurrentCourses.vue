@@ -32,7 +32,7 @@ import { mapGetters, mapActions } from "vuex";
 
 
 export default {
-      data: () => ({
+  data: () => ({
       rating: 5, 
       headers: [
           {
