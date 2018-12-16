@@ -12,6 +12,7 @@
     <v-img
       :src="tutorImage"
       width="100%"
+      height="100px"
     >
     </v-img>
     <v-card-title primary-title>
@@ -19,8 +20,7 @@
         <div class="headline">{{tutor.name}}</div>    
         <div><v-icon>map</v-icon>{{tutor.country}}</div>
         <div><v-icon>language</v-icon>{{tutor.nativeLanguage}}</div>
-        <div><v-icon>attach_money</v-icon>{{tutor.price}}</div>
-        <div><v-icon>school</v-icon>{{tutor.courses[0].name}}</div>
+        <div><v-icon>attach_money</v-icon>{{tutor.courses[0].price}}</div>
       </div>
     </v-card-title>
   </v-container>

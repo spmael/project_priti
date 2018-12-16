@@ -73,7 +73,8 @@ export default [
       nativeLanguage:"Greek",
       courses: [{
         id: 2,
-        name: "mathematics"
+        name: "mathematics",
+        price: "¥5000/h"
       }],
       locations: [
         {
@@ -93,7 +94,8 @@ export default [
       nativeLanguage:"Greek",
       courses: [{
         id: 3,
-        name: "ancient greek"
+        name: "ancient greek",
+        price: "¥5000/h"
       }]
     },
     {
@@ -106,7 +108,8 @@ export default [
       nativeLanguage:"French",
       courses: [{
         id: 1,
-        name: "biology"
+        name: "biology",
+        price: "¥5000/h"
       }]
     },
     {
@@ -119,7 +122,8 @@ export default [
       nativeLanguage:"Japanese",
       courses: [{
         id: 1,
-        name: "biology"
+        name: "biology",
+        price: "¥5000/h"
       }]
     },
     {
@@ -132,7 +136,8 @@ export default [
       nativeLanguage:"English",
       courses: [{
         id: 1,
-        name: "biology"
+        name: "biology",
+        price: "¥5000/h"
       }]
     }
   ];

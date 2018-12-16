@@ -1,5 +1,8 @@
 <template>
   <v-card>
+    <v-card-title>
+      <h1>Courses in Biology</h1>
+    </v-card-title>
     <v-container
       fluid
       grid-list-md

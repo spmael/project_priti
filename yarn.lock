@@ -3026,6 +3026,11 @@ es-to-primitive@^1.1.1:
     is-date-object "^1.0.1"
     is-symbol "^1.0.2"
 
+es6-promise@^2.0.1:
+  version "2.3.0"
+  resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-2.3.0.tgz#96edb9f2fdb01995822b263dd8aadab6748181bc"
+  integrity sha1-lu258v2wGZWCKyY92KratnSBgbw=
+
 es6-promise@^4.0.5:
   version "4.2.5"
   resolved "https://registry.yarnpkg.com/es6-promise/-/es6-promise-4.2.5.tgz#da6d0d5692efb461e082c14817fe2427d8f5d054"
@@ -3596,6 +3601,14 @@ firebase@^5.7.0:
     "@firebase/messaging" "0.3.7"
     "@firebase/polyfill" "0.3.3"
     "@firebase/storage" "0.2.4"
+
+firebox@^0.3.0:
+  version "0.3.0"
+  resolved "https://registry.yarnpkg.com/firebox/-/firebox-0.3.0.tgz#d349ffd7ad8bb557d8bef7daebb0f7954c1758be"
+  integrity sha1-00n/162LtVfYvvfa67D3lUwXWL4=
+  dependencies:
+    es6-promise "^2.0.1"
+    winreg "0.0.12"
 
 flat-cache@^1.2.1:
   version "1.3.4"
@@ -8478,6 +8491,11 @@ window-size@^0.1.4:
   version "0.1.4"
   resolved "https://registry.yarnpkg.com/window-size/-/window-size-0.1.4.tgz#f8e1aa1ee5a53ec5bf151ffa09742a6ad7697876"
   integrity sha1-+OGqHuWlPsW/FR/6CXQqatdpeHY=
+
+winreg@0.0.12:
+  version "0.0.12"
+  resolved "https://registry.yarnpkg.com/winreg/-/winreg-0.0.12.tgz#07105554ba1a9d08979251d129475bffae3006b7"
+  integrity sha1-BxBVVLoanQiXklHRKUdb/64wBrc=
 
 wordwrap@~1.0.0:
   version "1.0.0"
