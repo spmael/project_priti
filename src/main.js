@@ -1,22 +1,21 @@
 import Vue from 'vue'
-import './plugins/vuetify'
 import App from './App.vue'
 import router from './router'
 import store from '@/store';
+import "vuetify/dist/vuetify.min.css";
+import firebase from "firebase";
+import Vuetify from 'vuetify/lib'
+
+import 'vuetify/src/stylus/app.styl'
+
+Vue.use(Vuetify, {
+  iconfont: 'md',
+})
 //import './registerServiceWorker';
 
 //*+ set firebase 
 
 Vue.config.productionTip = false
-
-new Vue({
-  router,
-  store,
-  render: h => h(App)
-}).$mount('#app')
-
-import "vuetify/dist/vuetify.min.css";
-import firebase from "firebase";
 
 var config = {
   apiKey: "AIzaSyCZNea-LAMobpfvREtkB1zYhGP2693IxAw",
@@ -27,4 +26,9 @@ var config = {
   messagingSenderId: "746077437719"
 };
 firebase.initializeApp(config);
-Vue.use(Vuetify);
+
+new Vue({
+  router,
+  store,
+  render: h => h(App)
+}).$mount('#app')

@@ -62,7 +62,7 @@ export default {
           { text: 'Fri', value: 'friday' }
         ]
     }),
-  name: "TutorProfile",
+  name: "MyCourses",
   props: {
     tutorId: {
       required: true,
@@ -74,11 +74,11 @@ export default {
       tutor: "tutors/TUTOR"
     }),
     currentTutor() {
-      return this.tutor(1);//this.tutorId);
+      return this.tutor(this.tutorId);
     }
   },
   created() {
-    this.fetchTutor(1);//(this.tutorId);
+    this.fetchTutor(this.tutorId);
   },
     components: {
   }, 

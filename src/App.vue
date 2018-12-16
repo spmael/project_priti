@@ -66,6 +66,7 @@
 
 <script>
 import firebase from  "firebase";
+
 export default {
   data() {
     return {
@@ -84,8 +85,11 @@ export default {
       }
     },      
     created(){
+      console.log("created")
       firebase.auth().onAuthStateChanged(user =>{
+        console.log("change")
         if (user) {
+          console.log(user)
           this.isLoggedIn = true;
         }else{
           this.isLoggedIn = false;

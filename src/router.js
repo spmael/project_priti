@@ -5,7 +5,7 @@ import ViewCourses from '@/views/Courses/ViewCourses'
 import CreateCourse from '@/views/Courses/CreateCourse'
 import Tutor from "@/views/Tutor";
 import Tutors from "@/views/Tutors";
-import MyCourses from "@/views/Tutor/MyCourses"
+import MyCourses from "@/views/MyCourses"
 import Profile from '@/views/Users/Profile'
 import SignUp from '@/views/Users/SignUp'
 import SignIn from '@/views/Users/SignIn'
@@ -53,7 +53,7 @@ export default new Router({
       props: true
     },
     {
-      path: "/my_courses",
+      path: "my_courses/:tutorId",
       name: "MyCourses",
       component: MyCourses,
       props: true
