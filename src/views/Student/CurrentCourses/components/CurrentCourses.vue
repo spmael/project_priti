@@ -1,42 +1,28 @@
  <template>
- <v-card v-if="currentTutor">
-	<v-container>
-			<v-card v-for="course in myCourses()" v-bind:key="course.name">
-        <v-container
-          fluid
-          grid-list-lg
-        >
-          <v-layout row wrap>
-            <v-flex xs12>
+  <v-card v-if="currentStudent">
+	  <v-container
+    fluid
+    grid-list-md>
+      <v-layout row wrap>
+      <v-flex xs6  v-for="course in myCourses()" v-bind:key="course.name">
               <v-card color="blue-grey darken-2" class="white--text">
                 <v-card-title primary-title>
                   <div>
                     <div class="headline">{{course.name}}</div>
+                    <div >{{course.price}}</div>
                   </div>
                 </v-card-title>
                 <v-card-actions>
-                  <v-btn flat dark>Listen now</v-btn>
+                  <v-btn  dark>Change</v-btn>
                 </v-card-actions>
               </v-card>
-            </v-flex>
-          </v-layout>
-        </v-container>
-      </v-card>
+      </v-flex>
 
 		<v-flex xs2 class="text-xs-center text-sm-left">
-			<v-btn dark large router to="/courses/new" color="indigo lighten-3">Create a course</v-btn>
+			<v-btn dark large router to="/courses/new" color="indigo lighten-3">Find more courses</v-btn>
 		</v-flex>
 
-		<v-card >
-			<v-container>
-				<v-layout row>
-						<v-flex xs3>
-							{{currentTutor.course.name}}
-						</v-flex>	
-				</v-layout>
-			</v-container>
-		</v-card>
-
+    </v-layout>
 	</v-container>
 	</v-card>
 </template>
@@ -62,32 +48,32 @@ export default {
           { text: 'Fri', value: 'friday' }
         ]
     }),
-  name: "MyCourses",
+  name: "CurrentCourses",
   props: {
-    tutorId: {
+    studentId: {
       required: true,
       type: String
     }
   },
   computed: {
     ...mapGetters({
-      tutor: "tutors/TUTOR"
+      student: "students/STUDENT"
     }),
-    currentTutor() {
-      return this.tutor(this.tutorId);
+    currentStudent() {
+      return this.student(this.studentId);
     }
   },
   created() {
-    this.fetchTutor(this.tutorId);
+    this.fetchStudent(this.studentId);
   },
     components: {
   }, 
   methods: {
     ...mapActions({
-      fetchTutor: "tutors/FETCH_TUTOR"
+      fetchStudent: "students/FETCH_STUDENT"
     }),
 		myCourses() {
-			return this.tutor(this.tutorId).course;
+			return this.student(this.studentId).courses;
 		}
   }
 };

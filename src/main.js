@@ -11,9 +11,6 @@ import 'vuetify/src/stylus/app.styl'
 Vue.use(Vuetify, {
   iconfont: 'md',
 })
-//import './registerServiceWorker';
-
-//*+ set firebase 
 
 Vue.config.productionTip = false
 

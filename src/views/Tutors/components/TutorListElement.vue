@@ -20,7 +20,7 @@
         <div><v-icon>map</v-icon>{{tutor.country}}</div>
         <div><v-icon>language</v-icon>{{tutor.nativeLanguage}}</div>
         <div><v-icon>attach_money</v-icon>{{tutor.price}}</div>
-        <div><v-icon>school</v-icon>{{tutor.course.name}}</div>
+        <div><v-icon>school</v-icon>{{tutor.courses[0].name}}</div>
       </div>
     </v-card-title>
   </v-container>

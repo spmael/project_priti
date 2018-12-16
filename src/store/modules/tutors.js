@@ -4,7 +4,7 @@ import api from "@/api";
 const tutors = {
   namespaced: true,
   state: {
-    tutors: {}
+    tutors: {},
   },
   actions: {
     FETCH_TUTORS({ commit }) {
