@@ -31,16 +31,10 @@ export default new Router({
       
     },    
     {
-      path: "/tutors/:tutorId/create_course",
+      path: "/tutor/:tutorId/create_course",
       name: "CreateCourse",
       component: CreateCourse,
       props: true
-    },
-    {
-      path: '/profile',
-      name: 'Profile',
-      component: Profile
-      
     },
     {
       path: "/tutors",
@@ -48,13 +42,13 @@ export default new Router({
       component: Tutors
     },
     {
-      path: "/tutors/:tutorId",
+      path: "/tutor/:tutorId",
       name: "tutor",
       component: Tutor,
       props: true
     },
     {
-      path: "/:tutorId/my_courses",
+      path: "/tutor/:tutorId/my_courses",
       name: "MyCourses",
       component: MyCourses,
       props: true

@@ -78,9 +78,9 @@ export default {
         { icon:'lock_open', title:'Sign In', link: '/signin'}
         ],
         loggedInMenu: [
-        { icon:'library_books', title:'View Courses', link: '/courses'},
-        { icon:'create', title:'Create Course', link: '/tutors/create_course'},
-        { icon:'school', title:'My Profile', link: '/profile'},
+        { icon:'library_books', title:'View Courses', link: '/tutor/1/my_courses'},
+        { icon:'create', title:'Create Course', link: '/tutor/1/create_course'},
+        { icon:'school', title:'My Profile', link: '/tutor/1'},
         ]
       }
     },      

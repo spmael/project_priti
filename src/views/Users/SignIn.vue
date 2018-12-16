@@ -84,7 +84,7 @@ import firebase from "firebase";
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
 			user =>{
 					alert('Success!')
-					this.$router.push('/courses')
+					this.$router.push('tutor/1/my_courses')
 					},
 				err =>{
 					alert(err.message)
