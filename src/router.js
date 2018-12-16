@@ -2,7 +2,7 @@ import Vue from 'vue'
 import Router from 'vue-router'
 import Home from '@/views/Home'
 import ViewCourses from '@/views/Courses/ViewCourses'
-import CreateCourse from '@/views/Courses/CreateCourse'
+import CreateCourse from '@/views/CreateCourse'
 import Tutor from "@/views/Tutor";
 import Tutors from "@/views/Tutors";
 import MyCourses from "@/views/Tutor/MyCourses"
@@ -29,12 +29,12 @@ export default new Router({
       name: 'ViewCourses',
       component: ViewCourses
       
-    },
+    },    
     {
-      path: '/courses/new',
-      name: 'CreateCourse',
-      component: CreateCourse
-      
+      path: "/tutors/:tutorId/create_course",
+      name: "CreateCourse",
+      component: CreateCourse,
+      props: true
     },
     {
       path: '/profile',
