@@ -19,7 +19,7 @@
       </v-flex>
 
 		<v-flex xs2 class="text-xs-center text-sm-left">
-			<v-btn dark large router to="/courses/new" color="indigo lighten-3">Create a course</v-btn>
+			<v-btn dark large router to="/tutor/1/create_course" color="indigo lighten-3">Create a course</v-btn>
 		</v-flex>
 
     </v-layout>
