@@ -1,5 +1,6 @@
 <template>
     <v-container>
+          		 <h1>{{currentTutor.name}}'s profile</h1>
       <v-card v-if="currentTutor">
         <v-layout row wrap>
           <v-flex xs3>
@@ -89,12 +90,12 @@
                 class="elevation-1"
                 >
                 <template slot="items" slot-scope="props">
-                <td>{{ props.item.timeslot }}</td>
-                <td class="text-xs-right">{{ props.item.monday }}</td>
-                <td class="text-xs-right">{{ props.item.tuesday }}</td>
-                <td class="text-xs-right">{{ props.item.wednesday}}</td>
-                <td class="text-xs-right">{{ props.item.thursday }}</td>
-                <td class="text-xs-right">{{ props.item.friday }}</td>
+                <td>{{ props.item.timeschedule }}</td>
+                <td class="text-xs-center">{{ props.item.monday ? "○" : "×" }}</td>
+                <td class="text-xs-center">{{ props.item.tuesday ? "○" : "×"}}</td>
+                <td class="text-xs-center">{{ props.item.wednesday ? "○" : "×"}}</td>
+                <td class="text-xs-center">{{ props.item.thursday ? "○" : "×"}}</td>
+                <td class="text-xs-center">{{ props.item.friday ? "○" : "×"}}</td>
                 </template>
               </v-data-table>
             </v-card>
@@ -119,7 +120,7 @@ export default {
       rating: 5, 
       headers: [
           {
-            text: 'Time Slot',
+            text: 'Time Schedule',
             align: 'left',
             sortable: true,
             value: 'name'

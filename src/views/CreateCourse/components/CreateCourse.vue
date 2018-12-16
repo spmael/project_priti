@@ -2,7 +2,7 @@
  <v-form v-if="currentTutor"> 
     <v-container>
 				 <v-flex xs12>
-		 <h1>{{currentTutor.name}}</h1>
+		 <h1>{{currentTutor.name}} create a course</h1>
 	 </v-flex>
 
       <v-layout row wrap>
@@ -29,7 +29,7 @@
 			class="elevation-1"
 			>
 			<template slot="items" slot-scope="props">
-			<td>{{ props.item.timeslot }}</td>
+			<td>{{ props.item.timeschedule }}</td>
     <td><v-checkbox v-model="props.item.monday"></v-checkbox></td>
     <td><v-checkbox v-model="props.item.tuesday"></v-checkbox></td>
 		<td><v-checkbox v-model="props.item.wednesday"></v-checkbox></td>
@@ -38,7 +38,7 @@
 			</template>
 			</v-data-table>
 		</v-flex>
-		 <v-btn>Up date
+		 <v-btn>Update
 		 </v-btn>
 	 </v-layout>
     </v-container>
