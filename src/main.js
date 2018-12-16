@@ -28,4 +28,3 @@ var config = {
 };
 firebase.initializeApp(config);
 Vue.use(Vuetify);
-Vue.filter("date", convertDateToString);

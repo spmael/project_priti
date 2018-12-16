@@ -1,7 +1,7 @@
  <template>
- <v-card>
+ <v-card v-if="currentTutor">
 	<v-container>
-			<v-card v-for="course in myCourses" v-bind:key="course.name">
+			<v-card v-for="course in myCourses()" v-bind:key="course.name">
         <v-container
           fluid
           grid-list-lg
@@ -75,10 +75,7 @@ export default {
     }),
     currentTutor() {
       return this.tutor(1);//this.tutorId);
-    },
-		myCourses() {
-			return this.tutor(this.tutorId).course;
-		}
+    }
   },
   created() {
     this.fetchTutor(1);//(this.tutorId);
@@ -88,7 +85,10 @@ export default {
   methods: {
     ...mapActions({
       fetchTutor: "tutors/FETCH_TUTOR"
-    })
+    }),
+		myCourses() {
+			return this.tutor(this.tutorId).course;
+		}
   }
 };
 </script>
