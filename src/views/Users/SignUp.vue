@@ -108,7 +108,8 @@ import firebase from "firebase"
 			console.log();
 			firebase.auth().createUserWithEmailAndPassword(this.email, this.password)
 			.then(user =>{
-          alert('Create account: ',this.email);
+					alert('Create account: ',this.email);
+					this.$router.push('/');
 					console.log(user);
         })
         .catch(error =>{

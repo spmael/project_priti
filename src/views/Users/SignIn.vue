@@ -44,7 +44,7 @@
 			  </v-flex>
 			  <v-flex xs12 sm6>
 					Are you new here? <br>
-			    <v-btn color="success">Sign Up</v-btn>
+			    <v-btn color="success" v-on:click="goToSignUp()">Sign Up</v-btn>
 			  </v-flex>
 			</v-layout>
     	  </v-container>
@@ -70,13 +70,7 @@ import firebase from "firebase";
         v => !!v || 'Password is required',
         v => v.length <= 10 || 'Password must be less than 10 characters'
 			],
-			  name:"SignIn",
-  data(){
-    return{
-      email:null,
-      passward: null
-    }
-  },
+			  name:"SignIn"
 
     }),
 	  methods: {
@@ -90,15 +84,16 @@ import firebase from "firebase";
 					alert(err.message)
 				}
 			)
-		}
 		},
-	
-
-			goToAccountRecovery: function (){
-				//*+ Add form for email input
-				console.log()
-				this.$router.push('/account_recovery');
-			function myFunction() {
+		goToSignUp: function() {
+			this.$router.push('/signup');
+		},
+		goToAccountRecovery: function (){
+			//*+ Add form for email input
+			console.log()
+			this.$router.push('/account_recovery');
+		},
+		matchPassword: function () {
 				var x = document.getElementById("myInput");
 				if (x.type === "password") {
 				x.type = "text";
@@ -106,5 +101,6 @@ import firebase from "firebase";
 				x.type = "password";
 				}
 			}
-			}}	;
+		}	
+	}
 </script>
