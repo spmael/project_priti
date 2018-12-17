@@ -27,6 +27,7 @@
 				      :counter="10"
 				      label="Password"
 				      required
+							input type="password" id="myInput"
 				    ></v-text-field>
 				 </v-form>
 	    	  </div>
@@ -39,11 +40,11 @@
 					<p class="text-xs-right"><u>Did you forget your email or password?</u></p>
 			  </v-flex>
 			  <v-flex xs12 sm6>		
-			    <v-btn color="success">Sign In</v-btn>
+			    <v-btn color="success" v-on:click="SignIn">Sign In</v-btn>
 			  </v-flex>
 			  <v-flex xs12 sm6>
 					Are you new here? <br>
-			    <v-btn color="success">Sign Up</v-btn>
+			    <v-btn color="success" v-on:click="goToSignUp()">Sign Up</v-btn>
 			  </v-flex>
 			</v-layout>
     	  </v-container>
@@ -55,6 +56,7 @@
 </template>
 
 <script>
+import firebase from "firebase";
   export default {
     data: () => ({
       valid: false,
@@ -67,15 +69,38 @@
       passwordRules: [
         v => !!v || 'Password is required',
         v => v.length <= 10 || 'Password must be less than 10 characters'
-      ],
+			],
+			  name:"SignIn"
+
     }),
 	  methods: {
-			goToAccountRecovery: function (){
-				//*+ Add form for email input
-				console.log()
-				this.$router.push('/account_recovery');
-
+			 SignIn: function(){
+      firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
+			user =>{
+					alert('Success!')
+					this.$router.push('tutor/1/my_courses')
+					},
+				err =>{
+					alert(err.message)
+				}
+			)
+		},
+		goToSignUp: function() {
+			this.$router.push('/signup');
+		},
+		goToAccountRecovery: function (){
+			//*+ Add form for email input
+			console.log()
+			this.$router.push('/account_recovery');
+		},
+		matchPassword: function () {
+				var x = document.getElementById("myInput");
+				if (x.type === "password") {
+				x.type = "text";
+				} else {
+				x.type = "password";
+				}
 			}
-		}
-  }
+		}	
+	}
 </script>
