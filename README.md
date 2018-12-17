@@ -16,7 +16,7 @@ You can also request a tutor for a specific course.
 ```
 npm install
 ```
-###Essential packages 
+### Essential packages 
 ```
 firebase, vuex
 ```
