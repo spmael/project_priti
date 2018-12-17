@@ -5,12 +5,13 @@ import store from '@/store';
 import "vuetify/dist/vuetify.min.css";
 import firebase from "firebase";
 import Vuetify from 'vuetify/lib'
-
 import 'vuetify/src/stylus/app.styl'
+import Slick from 'vue-slick'
 
 Vue.use(Vuetify, {
   iconfont: 'md',
 })
+Vue.component('slick', Slick)
 
 Vue.config.productionTip = false
 

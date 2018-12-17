@@ -9,6 +9,8 @@ export default [
       nativeLanguage:"English",
       otherLanguage:"Spanish,Japanese",
       affiliation:"Titech",
+      gender:"Female",
+      age:"mid 20s",
       courses: [
         {
           id: 4,

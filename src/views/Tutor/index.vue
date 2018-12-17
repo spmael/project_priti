@@ -3,7 +3,7 @@
     <v-content>
       <v-container fill-height>
         <v-layout justify-center align-center>
-          <tutor-profile :tutorId="tutorId"></tutor-profile>
+          <my-profile :tutorId="tutorId"></my-profile>
         </v-layout>
       </v-container>
     </v-content>
@@ -12,13 +12,13 @@
 
 <script>
 // @ is an alias to /src
-import TutorProfile from "./components/TutorProfile.vue";
+import MyProfile from "./components/MyProfile.vue";
 
 export default {
   name: "Tutor",
   props: ["tutorId"],
   components: {
-    TutorProfile
+    MyProfile
   }
 };
 </script>
